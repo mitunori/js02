@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>myMemoPad</title>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css" />
+  </head>
+  <body>
+    <header>
+      <h1>MemoPad</h1>
+    </header>
+    <main>
+      <input type="text" id="key" />
+      <textarea id="memo"></textarea>
+      <ul>
+        <li id="save">Save</li>
+        <li id="clear">Clear</li>
+      </ul>
+    </main>
+    <table id="list">
+      <!-- ここに追加データが挿入される -->
+    </table>
+    <script>
+      //1.Save クリックイベント
+      $("#save").on("click", function () {
+        // alert(1);
+        const key = $("#key").val(); //入力されている文字を取得します
+        const memo = $("#memo").val();
+        console.log(key, "id=keyの入力");
+        console.log(memo, "id=memoの入力");
+
+        // ローカルストレージという保存場所にデータを登録します🤗
+        localStorage.setItem(key, memo);
+
+        const html = `
+            <tr>
+                <th>${key}</th>
+                <td>${memo}</td>
+            </tr>
+        `;
+
+        // 画面に表示
+        $("#list").append(html);
+
+        // この下消さない
+      });
+
+      //2.clear クリックイベント
+      $("#clear").on("click", function () {
+        // alert(1);
+
+        // ローカルストレージという保存場所に登録されているものを削除🤗
+        localStorage.clear();
+        $("#list").empty(); //id="list"の中身を削除するおまじない🤗
+        // この下消さない
+      });
+
+      //   const test = localStorage.key(1);
+      //   console.log(test, "鍵を調べます");
+
+      //   const test2 = localStorage.getItem(test);
+      //   console.log(test2, "鍵を使ってデータをとる");
+
+      //3.ページ読み込み：保存データ取得表示
+      // 繰り返し処理＋タンス＝配列の組み合わせを行なって
+      // 登録されているデータがあれば、表示するということを実現します🤗
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        const html = `
+            <tr>
+                <th>${key}</th>
+                <td>${value}</td>
+            </tr>
+        `;
+
+        // 画面に表示
+        $("#list").append(html);
+      }
+    </script>
+    <footer><small>G's</small></footer>
+  </body>
+</html>

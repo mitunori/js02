@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>配列</title>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <style>
+      #main {
+        margin: 5px;
+        padding: 5px;
+        background: #666;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>配列</h1>
+
+    <!-- ここに日時を表示させる -->
+    <div id="view"></div>
+    <!-- ここに日時を表示させる -->
+
+    <script>
+      //記述練習
+      const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+      // 配列の取得方法は？
+      // weekdays[数字が入ります];
+      // 木　を表示してみましょう🤗
+      // console.log(weekdays[x]);
+      // 月を取得したければ？？？→ weekdays[1];
+      // プルグラミングは０から数えます🤗
+      // 答えは？？
+      // console.log(weekdays[4]); //木
+
+      // タンスの数を取得するおまじない（配列）
+      // weekdays.xxxxx (xxxx)がおまじないになります🤗
+      // console.log(weekdays.xxxxx);
+      // 答えは？？
+      // console.log(weekdays.length);
+
+      console.log(weekdays, "タンスに追加前");
+      // unshift()は先頭,ではpush()はどんな動きですか？？
+      weekdays.push("もりた");
+      console.log(weekdays, "タンスに追加後");
+    </script>
+  </body>
+</html>

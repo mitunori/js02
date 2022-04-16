@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>繰り返し処理：for</title>
+    <script src="js/jquery-2.1.3.min.js"></script>
+  </head>
+  <body>
+    <!-- jQueryのおまじないで、jsを実行してhtmlに埋め込む -->
+    <div id="test"></div>
+
+    <script>
+      /* ------------------------------------------------------------------------
+             for (ループ初期値; ループ条件; ループするたびにおこなう処理) {
+                条件に一致している場合(true)繰り返し処理をおこなう
+            }
+            ------------------------------------------------------------------------ */
+      //基本( i < 10 )
+      console.log("A------------------");
+      // この下を記述しました
+      for (let i = 0; i < 3; i++) {
+        //条件:iより10が大きい場合=trueで繰り返す
+        // 変数iに代入されてる値を表示
+        console.log(i);
+      }
+
+      //応用1(i < 7)
+      const weekdays = [
+        "日",
+        "月",
+        "火",
+        "水",
+        "木",
+        "金",
+        "土",
+        "もりた",
+        "おおほり",
+      ];
+      //   console.log("B-------------------");
+      for (let i = 0; i < weekdays.length; i++) {
+        //条件:iより10が大きい場合=trueで繰り返す
+        // 変数iに代入されてる値を表示
+        // console.log(weekdays[i]);
+        // $("#test").html(weekdays[i]);
+        // debugger;
+      }
+
+      //応用2( i < week2.length )
+      console.log("C-------------------");
+
+      //応用3( break 途中でfor文を抜ける場合 )
+      console.log("D-------------------");
+
+      // 画面に表示するにはどうするの？？
+      let str = ""; //2.繰返し処理で、文字列を作成
+      for (let i = 0; i < 10; i++) {
+        str += "ループ:" + i + "回目<br>";
+      }
+      //3.変数「str」に入ってる文字列を pタグid="view"に表示
+      $("#test").html(str);
+    </script>
+  </body>
+</html>
